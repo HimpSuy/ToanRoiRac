@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int so_luong_ca_the(int gio, int so_luong) {
+    if (gio == 0) {
+        return so_luong;
+    } else {
+        return so_luong_ca_the(gio-1, so_luong*2);
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d",so_luong_ca_the(n, 1));
+    return 0;
+}
