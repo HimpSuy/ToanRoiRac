@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double n, M;
+	scanf("%lf %lf", &n, &M);
+	double nam, thang;
+	nam = floor(n);
+	thang = modf(n, &nam)*12;
+	
+    if (nam<1){
+    	if (thang<3)
+    		M = M*0.046 + M;
+    	else if (thang < 6)
+    		M = M*0.056 + M;
+    		else if (thang<12)
+    			M = M*0.066 + M;
+	}
+	else
+    	if (thang<3){
+    		for (int i=1;i<=nam;i++)
+				M = M*0.076 + M;
+				M = M*0.046 + M;
+		}
+    	else if (thang < 6){
+    		for (int i=1;i<=nam;i++)
+	    		M = M*0.076 + M;
+	    		M = M*0.056 + M;
+		}
+    		else if (thang<12){
+    			for (int i=1;i<=nam;i++)
+	    			M = M*0.076 + M;
+	    			M = M*0.066 + M;
+			}
+    printf("%.6lf",M);
+    return 0;
+}
