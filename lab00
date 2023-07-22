@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+#define MAX 10000
+
+unsigned long long result[MAX + 1];
+unsigned long long calculated = 0;
+
+void calculateFactorial(int n) {
+    for (int i = calculated + 1; i <= n; i++) {
+        result[i] = result[i - 1] * i;
+    }
+    calculated = n;
+}
+
+unsigned long long factorial(int n) {
+    if (n <= calculated) {
+        return result[n];
+    } else {
+        calculateFactorial(n);
+        return result[n];
+    }
+}
+
+int main() {
+    result[0] = 1;
+    result[1] = 1;
+    calculated = 1;
+
+    int num;
+    scanf("%d", &num);
+
+    printf("%llu",factorial(num));
+
+    return 0;
+}
